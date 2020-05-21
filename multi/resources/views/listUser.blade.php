@@ -20,6 +20,13 @@
 <p>{{ $userList->email }}</p>
 <p>{{ date('d/m/Y H:i', strtotime($userList->created_at)) }}</p>
 
+<form action="{{ route('users.formEditUser', ['user' => $userList->id]) }}">
+    @csrf
+    @method('PUT')
+    <input type="submit" value="editar" value="{{ $userList->id }}">
+</form>
+<a href="javascript:history.back()">Voltar</a>
+
 
 </body>
 </html>

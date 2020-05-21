@@ -23,9 +23,11 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                <a href="">Ver Usuário</a>
-                <form action="" method="post">
-                    <input type="hidden" name="user" value="">
+                <a href="{{ route('users.list', ['user' => $user->id]) }}">Ver Usuário</a>
+                <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="user" value="{{ $user->id }}">
                     <input type="submit" value="remover">
                 </form> 
             </td>

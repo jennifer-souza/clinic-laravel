@@ -14,12 +14,11 @@ class CreatePessoasTable extends Migration
     public function up()
     {
         Schema::create('pessoas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name', 100);
             $table->string('cpf', 16);
             $table->string('rg', 16);
             $table->date('birth');
-            $table->foreign('phone_id')->references('id')->on('phones');
             $table->string('email', 50);
             $table->timestamps();
         });

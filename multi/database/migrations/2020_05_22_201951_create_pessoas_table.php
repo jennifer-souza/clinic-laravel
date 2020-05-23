@@ -20,7 +20,19 @@ class CreatePessoasTable extends Migration
             $table->string('rg', 16);
             $table->date('birth');
             $table->string('email', 50);
+            $table->bigInteger('patient_id')->unsigned();
+            $table->bigInteger('professional_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('patient_id')
+                ->references('id')
+                ->on('patients')
+                ->cascadeOnDelete();
+
+            $table->foreign('professional_id')
+                ->references('id')
+                ->on('professionals')
+                ->cascadeOnDelete();
         });
     }
 

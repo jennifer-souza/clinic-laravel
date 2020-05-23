@@ -21,7 +21,19 @@ class CreateEnderecosTable extends Migration
             $table->string('complement', 20);
             $table->string('neighborhood', 30);
             $table->string('city', 50);
+            $table->bigInteger('patient_id')->unsigned();
+            $table->bigInteger('professional_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('patient_id')
+                ->references('id')
+                ->on('patients')
+                ->cascadeOnDelete();
+
+            $table->foreign('professional_id')
+                ->references('id')
+                ->on('professionals')
+                ->cascadeOnDelete();
         });
     }
 

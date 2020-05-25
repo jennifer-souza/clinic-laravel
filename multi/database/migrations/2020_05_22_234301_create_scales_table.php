@@ -17,7 +17,13 @@ class CreateScalesTable extends Migration
             $table->id();
             $table->date('date');
             $table->time('time');
+            $table->bigInterger('professional_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('professional_id')
+                ->references('id')
+                ->on('professionals')
+                ->cascadeOnDelete();
         });
     }
 

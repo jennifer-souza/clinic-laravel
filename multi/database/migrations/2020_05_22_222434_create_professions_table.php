@@ -17,7 +17,13 @@ class CreateProfessionsTable extends Migration
             $table->id();
             $table->string('profession', 30);
             $table->string('license', 20);
+            $table->bigInteger('professional_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('professional_id')
+                ->references('id')
+                ->on('professionals')
+                ->cascadeOnDelete();
         });
     }
 

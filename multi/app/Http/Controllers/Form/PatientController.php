@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
-use App\Professional;
+use App\Patient;
 use Illuminate\Http\Request;
 
-class ProfessionalController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class ProfessionalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Professional $professional)
+    public function show(Patient $patient)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProfessionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Professional $professional)
+    public function edit(Patient $patient)
     {
         //
     }
@@ -65,10 +65,10 @@ class ProfessionalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Professional  $professional
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Professional $professional)
+    public function update(Request $request, Patient $patient)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProfessionalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Professional $professional)
+    public function destroy(Patient $patient)
     {
         //
     }

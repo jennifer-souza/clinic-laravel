@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
-use App\Professional;
+use App\Pessoa;
 use Illuminate\Http\Request;
 
-class ProfessionalController extends Controller
+class PessoaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class ProfessionalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function show(Professional $professional)
+    public function show(Pessoa $pessoa)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProfessionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Professional $professional)
+    public function edit(Pessoa $pessoa)
     {
         //
     }
@@ -65,10 +65,10 @@ class ProfessionalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Professional  $professional
+     * @param  \App\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Professional $professional)
+    public function update(Request $request, Pessoa $pessoa)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProfessionalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Professional  $professional
+     * @param  \App\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Professional $professional)
+    public function destroy(Pessoa $pessoa)
     {
         //
     }

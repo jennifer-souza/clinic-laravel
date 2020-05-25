@@ -21,7 +21,12 @@ Route::get('/', function () {
 //mas a aplicação funciona sem ela
 //sem ela é necessário colocar Route::verb('uri', 'Form\Controler@method')->name('route-name) 
 
+Route::resource('profissionais', 'Form\ProfessionalController')->names('professional')->parameters(['profissionais' => 'professional']);
+Route::resource('pacientes', 'Form\PatientController')->names('patient')->parameters(['pacientes' => 'patient']);
+Route::resource('agendamentos', 'Form\ScheduleController')->names('schedule')->parameters(['agendamentos' => 'schedule']);
+
 Route::group(['namespace' => 'Form'], function(){
+
 
     Route::get('listagem-usuario', 'TestController@listUser');
 

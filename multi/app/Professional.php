@@ -17,21 +17,21 @@ class Professional extends Model
 
     public function pessoa()
     {
-        return $this->hasOne('App\Pessoa');
+        return $this->belongsTo('App\Pessoa');
     }
 
     public function phone()
     {
-        return $this->hasMany('App\Phone');
+        return $this->belongsToMany('App\Phone');
     }
 
     public function profession()
     {
-        return $this->hasOne('App\Profession');
+        return $this->belongsTo('App\Profession');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }

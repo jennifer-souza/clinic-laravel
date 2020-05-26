@@ -14,11 +14,11 @@ class Pessoa extends Model
 
     public function patient()
     {
-        return $this->belongsTo('App\Patient');
+        return $this->hasOne('App\Patient');
     }
 
     public function professional()
     {
-        return $this->belongsTo('App\Professional');
+        return $this->hasOne('App\Professional');
     }
 }

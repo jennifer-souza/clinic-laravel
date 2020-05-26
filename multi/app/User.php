@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function professional()
     {
-        return $this->belongsTo('App\Professional');
+        return $this->hasOne('App\Professional');
     }
 }

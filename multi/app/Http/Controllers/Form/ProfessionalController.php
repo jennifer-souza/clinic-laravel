@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use App\Professional;
+use App\Pessoa;
+use App\Phone;
+use App\Profession;
 use Illuminate\Http\Request;
 
 class ProfessionalController extends Controller
@@ -15,7 +18,12 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        //
+        $professional = Professional::all();
+        $pessoa = Pessoa::all();
+        $phone = Phone::all();
+        $profession = Profession::all();
+
+        //return view('profissionais.index', compact('professionals', 'pessoas', 'phones', 'professions'));
     }
 
     /**
@@ -25,7 +33,8 @@ class ProfessionalController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('newProfessional');
     }
 
     /**
@@ -36,7 +45,19 @@ class ProfessionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $professional = new Professional();
+        
+        $professional->pessoa()->name = $request->name;
+        $professional->pessoa()->cpf = $request->cpf;
+        $professional->pessoa()->rg = $request->rg;
+        $professional->pessoa()->birth = $request->birth;
+        $professional->pessoa()->email = $request->email;
+        $professional->phone()->ddd = $request->ddd;
+        $professional->phone()->phone = $request->phone;
+        $professional->profession()->profession = $request->profession;
+        $professional->profession()->license = $request->license;
+
+        $professional->save();
     }
 
     /**

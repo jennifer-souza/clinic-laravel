@@ -14,7 +14,7 @@ class Schedule extends Model
 
     public function professional()
     {
-        return $this->hasOne('App\Professional');
+        return $this->belongsTo('App\Professional');
     }
 
 /*  
@@ -26,11 +26,11 @@ class Schedule extends Model
 
     public function type()
     {
-        return $this->hasOne('App\Type');
+        return $this->belongsTo('App\Type');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }

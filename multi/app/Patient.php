@@ -14,16 +14,16 @@ class Patient extends Model
 
     public function pessoa()
     {
-        return $this->hasOne('App\Pessoa');
+        return $this->belongsTo('App\Pessoa');
     }
 
     public function phone()
     {
-        return $this->hasMany('App\Phone');
+        return $this->belongsToMany('App\Phone');
     }
 
     public function endereco()
     {
-        return $this->hasOne('App\Endereco');
+        return $this->belongsTo('App\Endereco');
     }
 }

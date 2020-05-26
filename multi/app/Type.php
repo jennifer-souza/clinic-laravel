@@ -16,6 +16,6 @@ class Type extends Model
 
     public function schedule()
     {
-        return $this->belongsTo('App\Schedule');
+        return $this->hasOne('App\Schedule');
     }
 }

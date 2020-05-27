@@ -15,7 +15,7 @@
         sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
   <body>
-    <form action="{{ route('professional.store') }}" class="prof" method="post">
+    <form action="{{ route('professional.store', ['professional' => $professional->id]) }}" class="prof" method="post">
         @csrf
         <h2 class="border border-secondary rounded bg-secondary text-white col-md-8"  style="padding-left: 20%;">Novo profissional</h2>
         <hr class="col-md-8" />

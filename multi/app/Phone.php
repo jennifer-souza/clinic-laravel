@@ -9,12 +9,12 @@ class Phone extends Model
     protected $table = 'phones';
 
     protected $fillable = [
-        'ddd', "phone"
+        'ddd', 'phone', 'professional_id'
     ];
 
     public function patient()
     {
-        return $this->hasOne('App\Patient');
+        return $this->belongsTo('App\Patient');
     }
 
     public function professional()

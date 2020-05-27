@@ -15,15 +15,11 @@ class CreateScalesTable extends Migration
     {
         Schema::create('scales', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('professional_id');
+            $table->foreign('professional_id')->references('id')->on('professionals')->cascadeOnDelete();
             $table->date('date');
             $table->time('time');
-            $table->bigInterger('professional_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('professional_id')
-                ->references('id')
-                ->on('professionals')
-                ->cascadeOnDelete();
         });
     }
 

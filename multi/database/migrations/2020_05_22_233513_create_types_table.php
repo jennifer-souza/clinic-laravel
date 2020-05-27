@@ -15,15 +15,11 @@ class CreateTypesTable extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('schedule_id')->unsigned();
+            $table->foreign('schedule_id')->references('id')->on('schedules')->cascadeOnDelete();
             $table->string('type', 20);
             $table->string('observations', 250);
-            $table->bigInteger('schedule_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('schedule_id')
-                ->references('id')
-                ->on('schedules')
-                ->cascadeOnDelete();
         });
     }
 

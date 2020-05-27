@@ -16,6 +16,10 @@ class CreateUsersTable extends Migration
         if (!Schema::hasTable('users')) {
             Schema::create('users', function (Blueprint $table) {
                 $table->id();
+                $table->bigInteger('professional_id')->unsigned();
+                $table->foreign('professional_id')->references('id')->on('professionals')->cascadeOnDelete();
+                $table->bigInteger('schedule_id')->unsigned();
+                $table->foreign('schedule_id')->references('id')->on('schedules')->cascadeOnDelete();
                 $table->string('name');
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();

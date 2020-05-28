@@ -9,21 +9,16 @@ class Patient extends Model
     protected $table = 'patients'; 
     
     protected $fillable = [
-        'pessoa_id', 'phone_id', 'endereco_id'
+        'professional_id', 'schedule_id'
     ];
 
-    public function pessoa()
+    public function person()
     {
-        return $this->belongsTo('App\Pessoa');
+        return $this->hasOne(Person::class, 'patient_id', 'id');
     }
 
-    public function phone()
+    public function address()
     {
-        return $this->belongsToMany('App\Phone');
-    }
-
-    public function endereco()
-    {
-        return $this->belongsTo('App\Endereco');
+        return $this->hasOne(Address::class, 'patient_id', 'id');
     }
 }

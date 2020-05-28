@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use App\Professional;
-use App\Pessoa;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Phone;
 use App\Profession;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class ProfessionalController extends Controller
     public function index()
     {
         $professional = Professional::all();
-        $pessoa = Pessoa::all();
+        //$pessoa = Pessoa::all();
         $phone = Phone::all();
         $profession = Profession::all();
 
@@ -46,12 +46,12 @@ class ProfessionalController extends Controller
      */
     public function store(Request $request)
     {
-        /**/
+        /*
         $professional = new Professional();
         //$pessoa = new Pessoa();
         $phone = new Phone();
         $profession = new Profession();
-        
+        */
 
 /*        $professional->pessoa([
             'name' => $request->name,
@@ -59,7 +59,7 @@ class ProfessionalController extends Controller
             'rg' => $request->rg,
             'birth' => $request->birth,
             'email' => $request->email
-        ]);*/
+        ]);
         $professional->phone([
             'ddd' => $request->ddd,
             'phone' => $request->phone
@@ -67,8 +67,8 @@ class ProfessionalController extends Controller
         $professional->profession([
             'profession' => $request->profession,
             'license' => $request->license
-        ]);
-
+        ]);*/
+/*
         //$pessoa->save();
         $phone->save();
         $profession->save();
@@ -81,7 +81,7 @@ class ProfessionalController extends Controller
         //$professional->pessoa()->attach($pessoa, ['id' => 'professional_id']);
         $professional->phone()->attach($phone, ['id' => 'professional_id']);
         $professional->profession()->attach($profession, ['id' => 'professional_id']);
-        $professional->save();
+        $professional->save();*/
 
     }
 
@@ -91,9 +91,44 @@ class ProfessionalController extends Controller
      * @param  \App\Professional  $professional
      * @return \Illuminate\Http\Response
      */
-    public function show(Professional $professional)
+    public function show(/*Professional $professional*/ $id)
     {
-        //
+        $professional = Professional::where('id', $id)->first();
+
+
+
+        if ($professional) {   
+            echo "<h1>Dados do Usuário</h1>";
+            echo "<p>ID: {$professional->id}</p>";
+        }
+
+        $person = $professional->person()->first();
+
+        if ($person) {
+            echo "<p>Nome: {$person->name}</p>";
+            echo "<p>CPF: {$person->cpf}</p>";
+            echo "<p>RG: {$person->rg}</p>";
+            echo "<p>Data de Nascimento: {$person->birth}</p>";
+            echo "<p>E-mail: {$person->email}</p>";
+        }
+
+        $phone = $professional->phone()->first();
+
+        if ($phone) {
+            echo "<p>DDD: {$phone->ddd}</p>";
+            echo "<p>Telefone: {$phone->phone}</p>";
+        }
+
+        $address = $professional->address()->first();
+
+        if ($address) {
+            echo "<h1>Endereço:</h1>";
+            echo "<p>Rua: {$address->address}</p>";
+            echo "<p>Nº: {$address->number}</p>";
+            echo "<p>Bairro: {$address->neighborhood}</p>";
+            echo "<p>Cidade: {$address->city}</p>";
+        }
+        
     }
 
     /**

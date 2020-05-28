@@ -21,10 +21,10 @@ Route::get('/', function () {
 //mas a aplicação funciona sem ela
 //sem ela é necessário colocar Route::verb('uri', 'Form\Controler@method')->name('route-name) 
 
-Route::resource('profissionais', 'Form\ProfessionalController')->names('professional')->parameters(['profissionais' => 'professional']);
-Route::resource('pacientes', 'Form\PatientController')->names('patient')->parameters(['pacientes' => 'patient']);
-Route::resource('agendamentos', 'Form\ScheduleController')->names('schedule')->parameters(['agendamentos' => 'schedule']);
-
+//Route::resource('profissionais', 'Form\ProfessionalController')->names('professional')->parameters(['profissionais' => 'professional']);
+//Route::resource('pacientes', 'Form\PatientController')->names('patient')->parameters(['pacientes' => 'patient']);
+//Route::resource('agendamentos', 'Form\ScheduleController')->names('schedule')->parameters(['agendamentos' => 'schedule']);
+Route::get('profissionais/{professional}', 'Form\ProfessionalController@show');
 Route::group(['namespace' => 'Form'], function(){
 
 

@@ -6,19 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    protected $table = 'pessoas';
+    protected $table = 'addresses';
 
     protected $fillable = [
-        'name', 'cpf', 'rg', 'birth', 'email', 'professional_id'
+        'patient_id', 'professional_id', 'zip', 'address', 'number', 'complement', 'neighborhood', 'city'
     ];
-
-    public function patient()
-    {
-        return $this->belongsTo('App\Patient');
-    }
-
-    public function professional()
-    {
-        return $this->hasOne('App\Professional');
-    }
 }

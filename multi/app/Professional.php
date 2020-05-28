@@ -3,35 +3,38 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Pessoa;
-use Phone;
-use Profession;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Professional extends Model
 {
     protected $table = 'professionals';
 
     protected $fillable = [
-        'pessoa_id', 'phone_id', 'profession_id', 'user_id'
+        'schedule_id'
     ];
 
-    public function pessoa()
+    public function person()
     {
-        return $this->belongsTo('App\Pessoa');
+        return $this->hasOne(Person::class, 'professional_id', 'id');
     }
 
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'professional_id', 'id');
+    }
+
+    public function patient()
+    {
+        return $this->hasMany(Patient::class, 'professional_id', 'id');
+    }
+    
     public function phone()
     {
-        return $this->belongsToMany('App\Phone');
+        return $this->hasMany(Phone::class, 'professional_id', 'id');
     }
-
+    
     public function profession()
     {
-        return $this->belongsTo('App\Profession');
-    }
-
-    public function user()
-    {
-        return $this->hasOne('App\User');
+        return $this->hasOne(Profession::class, 'professional_id', 'id');
     }
 }

@@ -12,6 +12,12 @@ class Profession extends Model
         'profession', 'license', 'professional_id'
     ];
 
+    public function __construct(string $profession, string $license)
+    {
+        $this->profession = $profession;
+        $this->license = $license;
+    }
+
     public function professional()
     {
         return $this->hasOne('App\Professional');

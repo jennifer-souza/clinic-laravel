@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use App\Professional;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Phone;
-use App\Profession;
 use Illuminate\Http\Request;
 
 
@@ -19,10 +16,7 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        $professional = Professional::all();
-        //$pessoa = Pessoa::all();
-        $phone = Phone::all();
-        $profession = Profession::all();
+        $professional = Professional::with('persons')->get();
 
         //return view('profissionais.index', compact('professionals', 'pessoas', 'phones', 'professions'));
     }
@@ -34,7 +28,6 @@ class ProfessionalController extends Controller
      */
     public function create()
     {
-
         return view('newProfessional');
     }
 
@@ -46,43 +39,9 @@ class ProfessionalController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        $professional = new Professional();
-        //$pessoa = new Pessoa();
-        $phone = new Phone();
-        $profession = new Profession();
-        */
+      $prof = Professional::create();
 
-/*        $professional->pessoa([
-            'name' => $request->name,
-            'cpf' => $request->cpf,
-            'rg' => $request->rg,
-            'birth' => $request->birth,
-            'email' => $request->email
-        ]);
-        $professional->phone([
-            'ddd' => $request->ddd,
-            'phone' => $request->phone
-        ]);
-        $professional->profession([
-            'profession' => $request->profession,
-            'license' => $request->license
-        ]);*/
-/*
-        //$pessoa->save();
-        $phone->save();
-        $profession->save();
-
-        //$pessoa = Pessoa::find($pessoa->id);
-        $phone = Phone::find($phone->id);
-        $profession = Profession::find($profession->id);
-        
-
-        //$professional->pessoa()->attach($pessoa, ['id' => 'professional_id']);
-        $professional->phone()->attach($phone, ['id' => 'professional_id']);
-        $professional->profession()->attach($profession, ['id' => 'professional_id']);
-        $professional->save();*/
-
+      
     }
 
     /**

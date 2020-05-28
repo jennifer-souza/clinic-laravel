@@ -3,12 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Address;
+use App\Person;
+use App\Phone;
+use App\Profession;
 
 class Professional extends Model
 {
     protected $table = 'professionals';
 
+    
     protected $fillable = [
         'schedule_id'
     ];

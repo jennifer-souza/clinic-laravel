@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
+use App\Person;
+use App\Phone;
+use App\Profession;
 use App\Professional;
 use Illuminate\Http\Request;
 
@@ -39,9 +42,44 @@ class ProfessionalController extends Controller
      */
     public function store(Request $request)
     {
-      $prof = Professional::create();
+      /*  $this->validate($request, [
+            'title' => 'required'
+            ]);
+  
+            $input = $request->all();
+  
+            $input['users_id'] = Auth::user()->id;
+  
+            Delivery::create($input);
+  
+            return redirect()->back();
 
+      $this->validate($request, [
+          'id' => 'required'
+      ]);*/ 
+
+      $professional = new Professional();
+      $professional->save();
+
+      $person = new Person();
+      $person->name = $request->name;
+      $person->cpf = $request->cpf;
+      $person->rg = $request->rg;
+      $person->birth = $request->birth;
+      $person->email = $request->email;
+      $professional->person()->save($person);
       
+      $profession = new Profession();
+      $profession->profession = $request->profession;
+      $profession->license = $request->license;
+      $professional->profession()->save($profession);
+      
+      $phone = new Phone();
+      $phone->ddd = $request->ddd;
+      $phone->phone = $request->phone;
+      $professional->phone()->save($phone);
+
+
     }
 
     /**

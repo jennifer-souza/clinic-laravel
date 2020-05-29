@@ -12,12 +12,6 @@ class Phone extends Model
         'ddd', 'phone', 'professional_id'
     ];
 
-    public function __construct(Phone $ddd, Phone $phone)
-    {
-        $this->phone()->ddd = $ddd;
-        $this->phone()->phone = $phone;
-    }
-
     public function patient()
     {
         return $this->belongsTo('App\Patient');

@@ -25,7 +25,7 @@
                 <input type="text" class="form-control" name="name">
             </div>
         </div>
-        <!--
+        <!---->
         <div class="row" style="padding-left: 20%;">
             <div class="form-group col-md-4" name="profession">
                 <label for="name">Área de atuação:</label>
@@ -35,7 +35,7 @@
                 <label for="name">Licença profissional:</label>
                 <input type="text" class="form-control" name="license">
             </div>
-        </div> -->
+        </div> 
         <div class="row" style="padding-left: 20%;">
             <div class="form-group col-md-4" name="cpf">
                 <label for="name">CPF:</label>
@@ -57,7 +57,7 @@
                 <label for="name">Data de nascimento</label>
                 <input type="date" class="form-control" name="birth">
             </div>
-            <!--
+            <!-- -->
             <div class="form-group col-md-1" name="ddd">
                 <label for="name">DDD:</label>
                 <input type="text" class="form-control" name="ddd">
@@ -65,7 +65,7 @@
             <div class="form-group col-md-3" name="phone">
                 <label for="name">Celular:</label>
                 <input type="text" class="form-control" name="phone">
-            </div> -->
+            </div>
         </div>
         <hr class="col-md-8" />
         <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">

@@ -9,14 +9,8 @@ class Profession extends Model
     protected $table = 'professions';
 
     protected $fillable = [
-        'profession', 'license', 'professional_id'
+        'professional_id', 'profession', 'license'
     ];
-
-    public function __construct(string $profession, string $license)
-    {
-        $this->profession = $profession;
-        $this->license = $license;
-    }
 
     public function professional()
     {

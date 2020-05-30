@@ -24,9 +24,16 @@ Route::get('/', function () {
 Route::resource('profissionais', 'Form\ProfessionalController')
     ->names('professional')
     ->parameters(['profissionais' => 'professional']);
-//Route::resource('pacientes', 'Form\PatientController')->names('patient')->parameters(['pacientes' => 'patient']);
-//Route::resource('agendamentos', 'Form\ScheduleController')->names('schedule')->parameters(['agendamentos' => 'schedule']);
-//Route::get('profissionais/{id}', 'Form\ProfessionalController@show');
+
+Route::resource('pacientes', 'Form\PatientController')
+    ->names('patient')
+    ->parameters(['pacientes' => 'patient']);
+
+Route::resource('agendamentos', 'Form\ScheduleController')
+    ->names('schedule')
+    ->parameters(['agendamentos' => 'schedule']);
+
+    //Route::get('profissionais/{id}', 'Form\ProfessionalController@show');
 Route::group(['namespace' => 'Form'], function(){
 
 
@@ -40,17 +47,11 @@ Route::group(['namespace' => 'Form'], function(){
     //Users
     Route::get('usuarios', 'TestController@listAllUsers')->name('users.listAll');
     Route::get('usuarios/novo', 'TestController@formAddUser')->name('users.formAddUser');
-    //Professionals
-    //Route::get('profissionais', 'ProfessionalController@listAll')->name('prof.listAll');
-    //Route::get('profissionais/novo', 'ProfessionalController@formAdd')->name('prof.formAdd');
 
     //Users
     //a uri abaixo pode ser igual a do put
     Route::get('usuarios/editar/{user}', 'TestController@formEditUser')->name('users.formEditUser');
     Route::get('usuarios/{user}', 'TestController@listUser')->name('users.list');
-    //Professionals
-    //Route::get('profissionais/editar/{professional}', 'ProfessionalController@formEdit')->name('prof.formEdit');
-    //Route::get('profissionais/{professional}', 'ProfessionalsController@list')->name('prof.list');
 
     /** 
      * VERBO POST
@@ -60,9 +61,6 @@ Route::group(['namespace' => 'Form'], function(){
     //se coloca store porque pode ser uma palavra reservada do laravel para o crud
     //mas é indicado por questão de segurança
     Route::post('usuarios/store', 'TestController@storeUser')->name('users.store');
-    //Professionals
-    //Route::post('profissionais/store', 'ProfessionalController@store')->name('prof.store');
-
 
     /** 
      * VERBO PUT/PATCH
@@ -73,9 +71,6 @@ Route::group(['namespace' => 'Form'], function(){
     //pode-se usar o patch nessa rota no lugar de put
     //trocar também o @method('put') da view para @method('put') 
     Route::put('usuarios/edit/{user}', 'TestController@edit')->name('users.edit');
-    //Professionals
-    //Route::put('profissionais/edit/{professional}', 'ProfessionalController@edit')->name('prof.edit');
-
 
     /** 
      * VERBO DELETE
@@ -85,7 +80,5 @@ Route::group(['namespace' => 'Form'], function(){
     //se coloca destroy porque pode ser uma palavra reservada do laravel para o crud
     //mas é indicado por questão de segurança
     Route::delete('usuarios/destroy/{user}', 'TestController@destroy')->name('user.destroy');
-    //Professionals
-    //Route::delete('profissionais/destroy/{professional}', 'ProfessionalController@destroy')->name('prof.destroy');
 });
 

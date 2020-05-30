@@ -3,7 +3,8 @@
 @include('head')
 <body>
 @include('header')
-    <form action="{{ route('patient.store')}}" class="prof" method="POST">
+    <form action="{{ route('patient.store') }}" class="prof" method="POST">
+        @csrf
         <h2 class="border border-secondary rounded bg-secondary text-white col-md-8">Novo paciente</h2>
         <hr class="col-md-8" />
         <div class="row">
@@ -86,7 +87,7 @@
         <hr class="col-md-8" />
         <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">
             <div class="btn-group mr-2" role="group">
-              <a href="listaPaciente.php">
+              <a href="{{}}">
                 <input type="submit" class="btn btn-danger" value="Cancelar">
               </a>
             </div>

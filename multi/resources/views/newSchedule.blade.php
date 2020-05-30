@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php include('head.html'); ?>
+@include('head')
 <body>
-<?php include('header.html'); ?>
-    <form action="{{ route('schedule.store') }}" class="prof" method="POST" id="form">
+@include('header')
+    <form action="{{ route('schedule.store') }}" class="prof" method="post" id="form">
+    @csrf
       <div id="result"></div> 
         <h2 class="border border-secondary rounded bg-secondary text-white col-md-8">Novo Agendamento</h2>
         <hr class="col-md-8" />
@@ -48,7 +49,7 @@
         <div class="row">
             <div class="form-group col-md-8" name="type">
                 <label for="name">Tipo:</label>
-                <textarea class="form-control" name="type" rows="4" id="type"></textarea>
+                <input type="text" class="form-control" name="type" id="type">
             </div>
         </div>
         <div class="row">
@@ -60,7 +61,7 @@
         <hr class="col-md-8" />
         <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">
             <div class="btn-group mr-2" role="group">
-              <a href="listaAgendamento.php">
+              <a href="{{}}">
                 <input type="submit" class="btn btn-danger" value="Cancelar" id="cancelar">
               </a>
             </div>

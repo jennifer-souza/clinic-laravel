@@ -14,30 +14,30 @@
 			      	<td class="table-dark">CPF</td>
 			      	<td class="table-dark">Celular</td>
 					<td colspan="3" class="table-dark">
-						<a href="{{   }}" style="padding-left: 50%;">
-							<button class="btn btn-primary btn-sm" >Novo profissional</button>
+						<a href="{{route('professional.create')}}" style="padding-left: 50%;">
+							<button class="btn btn-primary btn-sm">Novo profissional</button>
 						</a>
 					</td>
 			    </tr>
-				@foreach ($professionals as $professional)
+				@foreach($professionals as $professional)
 				<tr>
-					<td class="table-active">{{   }}</td>
-					<td class="table-active">{{   }}</td>
-					<td class="table-active">{{   }}</td>
-					<td class="table-active">{{   }}</td>
-					<td class="table-active">{{   }}</td>
+					<td class="table-active">{{$professional[3]}}</td>
+					<td class="table-active">{{$professional[5]}}</td>
+					<td class="table-active">{{$professional[6]}}</td>
+					<td class="table-active">{{$professional[4]}}</td>
+					<td class="table-active">{{$professional[7]}}</td>
 					<td class="table-active">
-						<a href="{{   }}">
+						<a href="">
 							<button type="button" class="btn btn-success btn-sm">Exibir</button>
 						</a>
 					</td>
 					<td class="table-active">
-						<a href="{{   }}">
+						<a href="">
 							<button type="button" class="btn btn-warning btn-sm">Editar</button>
 						</a>
 					</td>
 					<td class="table-active">	
-						<a href="{{   }}">
+						<a href="">
 							<button type="button" class="btn btn-danger btn-sm">Apagar</button>
 						</a>
 					</td>

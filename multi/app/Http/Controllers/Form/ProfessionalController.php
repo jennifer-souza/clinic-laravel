@@ -8,7 +8,7 @@ use App\Phone;
 use App\Profession;
 use App\Professional;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class ProfessionalController extends Controller
 {
@@ -19,9 +19,18 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        $professional = Professional::with('persons')->get();
+        
+        $professional = DB::table('professionals')
+        ->join('persons', 'professionals.id', 'persons.professional_id')
+        ->join('professions', 'professionals.id', 'professions.professional_id')
+        ->join('phones', 'professionals.id', 'phones.professional_id')
+        ->select('professionals.*', 'persons.name', 'persons.cpf', 'professions.profession', 'professions.license', 'phones.phone')
+        ->get();
 
-        //return view('profissionais.index', compact('professionals', 'pessoas', 'phones', 'professions'));
+
+        return view('listProfessional', [
+            'professionals' => $professional
+        ]);
     }
 
     /**

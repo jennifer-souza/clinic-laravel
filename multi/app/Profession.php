@@ -14,6 +14,6 @@ class Profession extends Model
 
     public function professional()
     {
-        return $this->hasOne('App\Professional');
+        return $this->belongsTo(Professional::class, 'id', 'professional_id');
     }
 }

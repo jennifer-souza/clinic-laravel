@@ -21,11 +21,11 @@
 			    </tr>
 				@foreach($professionals as $professional)
 				<tr>
-					<td class="table-active">{{$professional[3]}}</td>
-					<td class="table-active">{{$professional[5]}}</td>
-					<td class="table-active">{{$professional[6]}}</td>
-					<td class="table-active">{{$professional[4]}}</td>
-					<td class="table-active">{{$professional[7]}}</td>
+					<td class="table-active">{{$professional->name}}</td>
+					<td class="table-active">{{$professional->profession}}</td>
+					<td class="table-active">{{$professional->license}}</td>
+					<td class="table-active">{{$professional->cpf}}</td>
+					<td class="table-active">{{$professional->phone}}</td>
 					<td class="table-active">
 						<a href="">
 							<button type="button" class="btn btn-success btn-sm">Exibir</button>

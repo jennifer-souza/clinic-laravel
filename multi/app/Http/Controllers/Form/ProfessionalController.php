@@ -21,10 +21,10 @@ class ProfessionalController extends Controller
     {
         
         $professional = DB::table('professionals')
-        ->join('persons', 'professionals.id', 'persons.professional_id')
-        ->join('professions', 'professionals.id', 'professions.professional_id')
-        ->join('phones', 'professionals.id', 'phones.professional_id')
-        ->select('professionals.*', 'persons.name', 'persons.cpf', 'professions.profession', 'professions.license', 'phones.phone')
+        ->join('persons', 'professionals.id', '=', 'persons.professional_id')
+        ->join('professions', 'professionals.id', '=', 'professions.professional_id')
+        ->join('phones', 'professionals.id', '=', 'phones.professional_id')
+        ->select('professionals.*', 'persons.*', 'professions.*','phones.*')
         ->get();
 
 
@@ -54,17 +54,6 @@ class ProfessionalController extends Controller
       /*  $this->validate($request, [
             'title' => 'required'
             ]);
-  
-            $input = $request->all();
-  
-            $input['users_id'] = Auth::user()->id;
-  
-            Delivery::create($input);
-  
-            return redirect()->back();
-
-      $this->validate($request, [
-          'id' => 'required'
       ]);*/ 
 
       $professional = new Professional();
@@ -97,7 +86,7 @@ class ProfessionalController extends Controller
      * @param  \App\Professional  $professional
      * @return \Illuminate\Http\Response
      */
-    public function show(/*Professional $professional*/ $id)
+    public function show($id)
     {
         $professional = Professional::where('id', $id)->first();
 
@@ -127,14 +116,14 @@ class ProfessionalController extends Controller
 
         $address = $professional->address()->first();
 
+        /*
         if ($address) {
             echo "<h1>Endereço:</h1>";
             echo "<p>Rua: {$address->address}</p>";
             echo "<p>Nº: {$address->number}</p>";
             echo "<p>Bairro: {$address->neighborhood}</p>";
             echo "<p>Cidade: {$address->city}</p>";
-        }
-        
+        }*/
     }
 
     /**
@@ -145,7 +134,7 @@ class ProfessionalController extends Controller
      */
     public function edit(Professional $professional)
     {
-        //
+
     }
 
     /**
@@ -157,7 +146,7 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, Professional $professional)
     {
-        //
+
     }
 
     /**

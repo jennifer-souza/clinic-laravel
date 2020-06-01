@@ -22,7 +22,7 @@
 				@foreach($professionals as $professional)
 				<tr>
 					<td class="table-active">{{$professional->name}}</td>
-					<td class="table-active">{{$professional->profession}}</td>
+					<td class="table-active">{{$professional->prof}}</td>
 					<td class="table-active">{{$professional->license}}</td>
 					<td class="table-active">{{$professional->cpf}}</td>
 					<td class="table-active">{{$professional->phone}}</td>

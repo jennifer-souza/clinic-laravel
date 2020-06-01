@@ -19,13 +19,12 @@ class ProfessionalController extends Controller
      */
     public function index()
     {
-        
         $professional = DB::table('professionals')
-        ->join('persons', 'professionals.id', '=', 'persons.professional_id')
-        ->join('professions', 'professionals.id', '=', 'professions.professional_id')
-        ->join('phones', 'professionals.id', '=', 'phones.professional_id')
-        ->select('professionals.*', 'persons.*', 'professions.*','phones.*')
-        ->get();
+            ->join('persons', 'professionals.id', '=', 'persons.professional_id')
+            ->join('professions', 'professionals.id', '=', 'professions.professional_id')
+            ->join('phones', 'professionals.id', '=', 'phones.professional_id')
+            ->select('professionals.*', 'persons.*', 'professions.*','phones.*')
+            ->get();
 
 
         return view('listProfessional', [

@@ -134,7 +134,9 @@ class ProfessionalController extends Controller
      */
     public function edit(Professional $professional)
     {
-
+        return view('editProfessional', [
+            'professional' => $professional
+        ]);
     }
 
     /**
@@ -146,7 +148,19 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, Professional $professional)
     {
+        $professional->person->name = $request->name;
+        $professional->profession->profession = $request->profession;
+        $professional->profession->license = $request->profession;
+        $professional->person->cpf = $request->cpf;
+        $professional->person->rg = $request->rg;
+        $professional->person->email = $request->email;
+        $professional->person->birth = $request->birth;
+        $professional->phone->ddd = $request->ddd;
+        $professional->phone->phone = $request->phone;
 
+        $professional->save();
+
+        return redirect()->route('professional.edit');
     }
 
     /**

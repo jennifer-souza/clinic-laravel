@@ -9,7 +9,7 @@ class Profession extends Model
     protected $table = 'professions';
 
     protected $fillable = [
-        'professional_id', 'profession', 'license'
+        'professional_id', 'prof', 'license'
     ];
 
     public function professional()

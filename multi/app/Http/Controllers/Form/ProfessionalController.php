@@ -9,6 +9,7 @@ use App\Profession;
 use App\Professional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProfessionalController extends Controller
 {
@@ -147,19 +148,19 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, Professional $professional)
     {
-        $professional->person->name = $request->name;
-        $professional->profession->profession = $request->profession;
-        $professional->profession->license = $request->profession;
-        $professional->person->cpf = $request->cpf;
-        $professional->person->rg = $request->rg;
-        $professional->person->email = $request->email;
-        $professional->person->birth = $request->birth;
-        $professional->phone->ddd = $request->ddd;
-        $professional->phone->phone = $request->phone;
+        $professional->person()->name = $request->name;
+        $professional->profession()->profession = $request->profession;
+        $professional->profession()->license = $request->license;
+        $professional->person()->cpf = $request->cpf;
+        $professional->person()->rg = $request->rg;
+        $professional->person()->email = $request->email;
+        $professional->person()->birth = $request->birth;
+        $professional->phone()->ddd = $request->ddd;
+        $professional->phone()->phone = $request->phone;
 
         $professional->save();
 
-        return redirect()->route('professional.edit');
+        return redirect()->route('professional.index');
     }
 
     /**
@@ -170,6 +171,7 @@ class ProfessionalController extends Controller
      */
     public function destroy(Professional $professional)
     {
-        //
+        $professional->delete();
+        return redirect()->route('professional.index');
     }
 }

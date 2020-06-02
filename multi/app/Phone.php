@@ -3,18 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Professional;
+use App\Patient;
 
 class Phone extends Model
 {
     protected $table = 'phones';
 
     protected $fillable = [
-        'ddd', 'phone', 'professional_id'
+        'patient_id', 'professional_id', 'ddd', 'phone'
     ];
 
     public function patient()
     {
-        return $this->belongsTo('App\Patient');
+        return $this->belongsTo(Patient::class, 'id', 'patient_id');
     }
 
     public function professional()

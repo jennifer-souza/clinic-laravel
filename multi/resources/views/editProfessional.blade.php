@@ -3,7 +3,7 @@
 @include('head')
   <body>
   @include('header')
-    <form action="{{ route('professional.edit', ['professional' => $professional->id]) }}" class="prof" method="post" style="padding-top: 5%;">
+    <form action="{{ route('professional.update', ['professional' => $professional->id]) }}" class="prof" method="post" style="padding-top: 5%;">
         @csrf
         @method('PUT')
         <h2 class="border border-secondary rounded"  style="padding-left: 20%;">Editar profissional</h2>
@@ -47,14 +47,16 @@
                 <input type="date" class="form-control" name="birth" value="{{$professional->person->birth}}">
             </div>
             <!-- -->
+            @foreach ($professional->phone as $professional)
             <div class="form-group col-md-1" name="ddd">
                 <label for="name">DDD:</label>
-                <input type="text" class="form-control" name="ddd" value="{{$professional->phone}}">
+                <input type="text" class="form-control" name="ddd" value="{{$professional->ddd}}">
             </div>
             <div class="form-group col-md-3" name="phone">
                 <label for="name">Celular:</label>
                 <input type="text" class="form-control" name="phone" value="{{$professional->phone}}">
             </div>
+            @endforeach
         </div>
         <hr class="col-md-8" />
         <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">

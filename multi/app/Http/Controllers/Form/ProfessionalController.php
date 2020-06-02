@@ -148,17 +148,27 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, Professional $professional)
     {
-        $professional->person()->name = $request->name;
-        $professional->profession()->profession = $request->profession;
-        $professional->profession()->license = $request->license;
-        $professional->person()->cpf = $request->cpf;
-        $professional->person()->rg = $request->rg;
-        $professional->person()->email = $request->email;
-        $professional->person()->birth = $request->birth;
-        $professional->phone()->ddd = $request->ddd;
-        $professional->phone()->phone = $request->phone;
 
-        $professional->save();
+        $professional->person()->update([
+            'professional_id' => $professional->id,
+            'name' => $request->name,
+            'cpf' => $request->cpf,
+            'rg' => $request->rg,
+            'email' => $request->email,
+            'birth' => $request->birth
+        ]);
+
+        $professional->profession()->update([
+            'professional_id' => $professional->id,
+            'prof' => $request->profession,
+            'license' => $request->license
+        ]);
+
+        $professional->phone()->update([
+            'professional_id' => $professional->id,
+            'ddd' => $request->ddd,
+            'phone' => $request->phone
+        ]);
 
         return redirect()->route('professional.index');
     }

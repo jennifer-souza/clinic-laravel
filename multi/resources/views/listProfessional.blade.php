@@ -45,5 +45,6 @@
 				@endforeach
 			</table>
 		</div>
+	@include('down')
 	</body>
 </html>

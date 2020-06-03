@@ -70,5 +70,6 @@
         </div>
         <hr class="col-md-8" />
     </form>
+@include('down')
 </body>
 </html>

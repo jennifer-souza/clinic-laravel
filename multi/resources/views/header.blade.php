@@ -31,9 +31,6 @@
           <a class="dropdown-item" href="#">Hoje</a>
         </div>
     </li>
-  </ul>
-  <ul class="navbar-nav" style="padding-left: 1%;"></ul>
-  <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="sair.php"><strong>Sair</strong></a>
     </li>

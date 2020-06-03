@@ -89,15 +89,23 @@ class ProfessionalController extends Controller
     public function show($id)
     {
         $professional = Professional::where('id', $id)->first();
+        $person = $professional->person()->first();
+        $profession = $professional->profession()->first();
+        $phone = $professional->phone()->first();
 
 
-
+        return view('showProfessional', [
+            'professional' => $professional,
+            'person' => $person,
+            'profession' => $profession,
+            'phone' => $phone
+        ]);
+            
+        /*
         if ($professional) {   
             echo "<h1>Dados do Usuário</h1>";
             echo "<p>ID: {$professional->id}</p>";
         }
-
-        $person = $professional->person()->first();
 
         if ($person) {
             echo "<p>Nome: {$person->name}</p>";
@@ -107,16 +115,11 @@ class ProfessionalController extends Controller
             echo "<p>E-mail: {$person->email}</p>";
         }
 
-        $phone = $professional->phone()->first();
-
         if ($phone) {
             echo "<p>DDD: {$phone->ddd}</p>";
             echo "<p>Telefone: {$phone->phone}</p>";
         }
-
         $address = $professional->address()->first();
-
-        /*
         if ($address) {
             echo "<h1>Endereço:</h1>";
             echo "<p>Rua: {$address->address}</p>";

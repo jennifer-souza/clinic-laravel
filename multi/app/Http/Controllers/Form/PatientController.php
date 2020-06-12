@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use App\Patient;
+use App\Person;
+use App\Address;
+use App\Phone;
+use App\Professional;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -48,7 +53,7 @@ class PatientController extends Controller
         $patient = new Patient();
         $patient->save();
 
-        
+
     }
 
     /**

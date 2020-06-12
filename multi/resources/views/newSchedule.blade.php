@@ -61,7 +61,7 @@
         <hr class="col-md-8" />
         <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">
             <div class="btn-group mr-2" role="group">
-              <a href="{{}}">
+              <a href="javascript:history.back()">
                 <input type="submit" class="btn btn-danger" value="Cancelar" id="cancelar">
               </a>
             </div>

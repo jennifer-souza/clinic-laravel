@@ -3,11 +3,10 @@
 @include('head')
 <body>
 @include('header')
-<div style="padding-left: 20%; padding-top: 5%;">
-    <form action="{{ route('patient.store') }}" class="prof" method="POST">
-        @csrf
-        <h2 class="border border-secondary rounded bg-secondary text-white col-md-8">Novo paciente</h2>
-        <hr class="col-md-8" />
+<form action="{{ route('patient.store') }}" class="prof" method="POST">
+    @csrf
+    <div style="padding: 5% 1% 1% 20%;">
+        <h2 class="border border-primary rounded bg-primary text-white col-md-8">Novo paciente</h2>
         <div class="row">
             <div class="form-group col-md-8" name="name">
                 <label for="name">Nome:</label>
@@ -63,12 +62,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-4" name="phone">
-                <label for="name">Telefore:</label>
+            <div class="form-group col-md-1" name="ddd">
+                    <label for="name">DDD:</label>
+                    <input type="text" class="form-control" name="ddd">
+            </div>
+            <div class="form-group col-md-3" name="phone">
+                <label for="name">Celular:</label>
                 <input type="text" class="form-control" name="phone">
             </div>
-            <div class="form-group col-md-4" name="phone">
-                <label for="name">Celular:</label>
+            <div class="form-group col-md-1" name="ddd">
+                <label for="name">DDD:</label>
+                <input type="text" class="form-control" name="ddd">
+            </div>
+            <div class="form-group col-md-3" name="phone">
+                <label for="name">Telefore:</label>
                 <input type="text" class="form-control" name="phone">
             </div>
         </div>
@@ -84,20 +91,20 @@
                 <input type="text" class="form-control" name="profession">
             </div>
         </div>
-        <hr class="col-md-8" />
-        <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">
-            <div class="btn-group mr-2" role="group">
-              <a href="javascript:history.back()">
+    </div>
+    <hr class="col-md-12" />
+    <div class="row btn-toolbar" role="toolbar" style="padding-left: 50%;">
+        <div class="btn-group mr-2" role="group">
+            <a href="javascript:history.back()">
                 <input type="submit" class="btn btn-danger" value="Cancelar">
-              </a>
-            </div>
-            <div class="btn-group mr-2" role="group">
-              <input type="submit" class="btn btn-success" value="Salvar">
-            </div>    
+            </a>
         </div>
-        <hr class="col-md-8" />
-    </form>
-</div>
+        <div class="btn-group mr-2" role="group">
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </div>    
+    </div>
+    <hr class="col-md-12" />
+</form>
 @include('down')
 </body>
 </html>

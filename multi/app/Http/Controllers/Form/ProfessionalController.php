@@ -9,7 +9,6 @@ use App\Profession;
 use App\Professional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Collection;
 
 class ProfessionalController extends Controller
 {

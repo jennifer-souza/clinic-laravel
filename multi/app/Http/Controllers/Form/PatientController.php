@@ -15,7 +15,16 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $patient = DB::table('patient')
+            ->join('persons', 'patients.id', '=', 'persons.patient_id')
+            ->join('addresses', 'patients.id', '=', 'addresses.patient_id')
+            ->join('phones', 'patients.id', '=', 'phones.patient_id')
+            ->select('patients.*', 'persons.*', 'addresses.*', 'phones.*')
+            ->get();
+
+        return view('listPatient', [
+            'patients' => $patient
+        ]);
     }
 
     /**
@@ -36,7 +45,10 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = new Patient();
+        $patient->save();
+
+        
     }
 
     /**

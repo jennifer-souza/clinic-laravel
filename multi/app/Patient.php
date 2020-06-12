@@ -21,4 +21,9 @@ class Patient extends Model
     {
         return $this->hasOne(Address::class, 'patient_id', 'id');
     }
+
+    public function phone() 
+    {
+        return $this->hasMany(Phone::class, 'patient_id', 'id');
+    }
 }

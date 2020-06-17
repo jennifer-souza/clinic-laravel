@@ -20,7 +20,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patient = DB::table('patient')
+        $patient = DB::table('patients')
             ->join('persons', 'patients.id', '=', 'persons.patient_id')
             ->join('addresses', 'patients.id', '=', 'addresses.patient_id')
             ->join('phones', 'patients.id', '=', 'phones.patient_id')

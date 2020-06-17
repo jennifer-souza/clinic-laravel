@@ -9,11 +9,6 @@ class Scale extends Model
     protected $table = 'scales';
 
     protected $fillable = [
-        'date', 'time'
+        'schedule_id', 'professional_id', 'date', 'time'
     ];
-
-    public function professional()
-    {
-        return $this->hasOne('App\Professional');
-    }
 }

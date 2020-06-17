@@ -11,11 +11,6 @@ class Type extends Model
     protected $table = 'types';
 
     protected $fillable = [
-        'type', 'observations'
+        'schedule_id', 'type', 'observations'
     ];
-
-    public function schedule()
-    {
-        return $this->hasOne('App\Schedule');
-    }
 }

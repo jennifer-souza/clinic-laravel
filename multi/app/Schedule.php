@@ -8,29 +8,25 @@ class Schedule extends Model
 {
     protected $table = 'schedules';
 
-    protected $fillable = [
-        'professional_id', 'scale_id', 'type_id', 'user_id'
-    ];
+    protected $fillable = [];
 
     public function professional()
     {
-        return $this->belongsTo('App\Professional');
+        return $this->hasOne(Professional::class, 'schedule_id', 'id');
     }
 
-/*  
-    public function scale()
+    public function patient() 
     {
-        return $this->hasOne('App\Scale');
+        return $this->hasOne(Patient::class, 'schedule_id', 'id');
     }
-*/
 
     public function type()
     {
-        return $this->belongsTo('App\Type');
+        return $this->hasOne(Type::class, 'schedule_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasOne(User::class, 'schedule_id', 'id');
     }
 }

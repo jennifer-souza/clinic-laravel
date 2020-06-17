@@ -122,7 +122,6 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, Professional $professional)
     {
-
         $professional->person()->update([
             'professional_id' => $professional->id,
             'name' => $request->name,

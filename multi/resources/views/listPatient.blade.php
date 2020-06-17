@@ -4,50 +4,54 @@
 @include('head')
 	<body>
     @include('header')
-		<div class="prof">
-			<h2 class="border border-secondary rounded bg-secondary text-white col-md-12">Lista de Pacientes</h2>
-			<hr>
-			<table class="table table-hover table-sm border border-secondary col-md-12">
-			    <tr>
-			      	<td class="table-dark">Nome</td>
-			      	<td class="table-dark">CPF</td>
-			      	<td class="table-dark">RG</td>
-			      	<td class="table-dark">Data de Nasc.</td>
-			      	<td class="table-dark">Telefone</td>
-			      	<td class="table-dark">Celular</td>
-					<td colspan="3" class="table-dark">
-						<a href="{{   }}" style="padding-left: 55%;">
-							<button class="btn btn-primary btn-sm" >Novo paciente</button>
-						</a>
-					</td>
-				</tr>
-				@foreach ($patients as $patient)
-					<tr>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">{{   }}</td>
-						<td class="table-active">
-							<a href="{{   }}">
-								<button type="button" class="btn btn-success btn-sm">Exibir</button>
-							</a>
-						</td>
-						<td class="table-active">
-							<a href="{{   }}">
-								<button type="button" class="btn btn-warning btn-sm">Editar</button>
-							</a>
-						</td>
-						<td class="table-active">	
-							<a href="{{   }}">
-								<button type="button" class="btn btn-danger btn-sm">Apagar</button>
-							</a>
-						</td>
-					</tr>
-				@endforeach
-			</table>
+	<div class="container">
+			<h2 class="border border-primary rounded bg-primary text-white col-md-12">Lista de Pacientes</h2>
+			<hr />
+			<div scope="row">
+				<table class="table table-hover table-sm border border-dark">
+					<thead class="thead-dark">
+						<tr>
+							<td scope="col">Nome</td>
+							<td scope="col">CPF</td>
+							<td scope="col" class="collapse">RG</td>
+							<td scope="col" class="">Data de Nasc.</td>
+							<td scope="col" class="collapse">Celular</td>
+							<th scope="col">
+								<a href="{{route('patient.create')}}">
+									<button class="btn btn-primary btn-sm">Novo</button>
+								</a>
+							</th>
+						</tr>
+					</thead>
+					@foreach ($patients as $patient)
+						<tbody>
+							<tr>
+								<td scope="col">{{$patient->name}}</td>
+								<td scope="col">{{$patient->cpf}}</td>
+								<td scope="col" class="collapse">{{$patient->rg}}</td>
+								<td scope="col">{{$patient->birth}}</td>
+								<td scope="col" class="collapse">{{$patient->phone}}</td>
+								<td class="d-flex flex-row">
+									<nav>
+										<a class="nav-link dropdown-toggle btn btn-success btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item text-success" href="#">Exibir</a>
+											<a class="dropdown-item text-warning" href="#">Editar</a>
+											<a class="dropdown-item text-danger" href="#">Deletar</a>
+										</div>
+									</nav>
+								</td>
+							</tr>
+						</tbody>
+					@endforeach
+				</table>
+			</div>
 		</div>
 	@include('down')
+	<script>
+		if (($(window).width()) > 500) {
+			$('.collapse').show();
+		}
+	</script>
 	</body>
 </html>

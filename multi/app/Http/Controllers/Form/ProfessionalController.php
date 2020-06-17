@@ -7,6 +7,7 @@ use App\Person;
 use App\Phone;
 use App\Profession;
 use App\Professional;
+use App\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -75,8 +76,6 @@ class ProfessionalController extends Controller
       $phone->ddd = $request->ddd;
       $phone->phone = $request->phone;
       $professional->phone()->save($phone);
-
-
     }
 
     /**
@@ -99,33 +98,6 @@ class ProfessionalController extends Controller
             'profession' => $profession,
             'phone' => $phone
         ]);
-            
-        /*
-        if ($professional) {   
-            echo "<h1>Dados do Usuário</h1>";
-            echo "<p>ID: {$professional->id}</p>";
-        }
-
-        if ($person) {
-            echo "<p>Nome: {$person->name}</p>";
-            echo "<p>CPF: {$person->cpf}</p>";
-            echo "<p>RG: {$person->rg}</p>";
-            echo "<p>Data de Nascimento: {$person->birth}</p>";
-            echo "<p>E-mail: {$person->email}</p>";
-        }
-
-        if ($phone) {
-            echo "<p>DDD: {$phone->ddd}</p>";
-            echo "<p>Telefone: {$phone->phone}</p>";
-        }
-        $address = $professional->address()->first();
-        if ($address) {
-            echo "<h1>Endereço:</h1>";
-            echo "<p>Rua: {$address->address}</p>";
-            echo "<p>Nº: {$address->number}</p>";
-            echo "<p>Bairro: {$address->neighborhood}</p>";
-            echo "<p>Cidade: {$address->city}</p>";
-        }*/
     }
 
     /**

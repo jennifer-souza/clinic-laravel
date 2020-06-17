@@ -84,9 +84,9 @@ class ProfessionalController extends Controller
      * @param  \App\Professional  $professional
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Professional $professional)
     {
-        $professional = Professional::where('id', $id)->first();
+        $professional = Professional::where('id', $professional->id)->first();
         $person = $professional->person()->first();
         $profession = $professional->profession()->first();
         $phone = $professional->phone()->first();

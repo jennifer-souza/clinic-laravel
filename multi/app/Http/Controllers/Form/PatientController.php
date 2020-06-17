@@ -53,7 +53,28 @@ class PatientController extends Controller
         $patient = new Patient();
         $patient->save();
 
+        $person = new Person();
+        $person->name = $request->name;
+        $person->cpf = $request->cpf;
+        $person->rg = $request->rg;
+        $person->birth =  $request->birth;
+        $person->email = $request->email;
+        $patient->person()->save($person);
 
+        $address = new Address();
+        $address->zip =  $request->zip;
+        $address->street = $request->street;
+        $address->number = $request->number;
+        $address->complement = $request->complement;
+        $address->neighborhood = $request->neighborhood;
+        $address->city = $request->city;
+        $address->state = $request->state;
+        $patient->address()->save($address);
+
+        $phone = new Phone();
+        $phone->ddd = $request->ddd;
+        $phone->phone = $request->phone;
+        $patient->phone()->save($phone);
     }
 
     /**

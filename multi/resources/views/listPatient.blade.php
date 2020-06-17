@@ -10,12 +10,12 @@
 			<hr />
 			<div scope="row">
 				<table class="table table-hover table-sm border border-dark">
-					<thead class="table-dark thead thead-sm">
+					<thead class="table-dark">
 						<tr>
 							<td scope="col">Nome</td>
-							<td scope="col" class="collapse">CPF</td>
+							<td scope="col">CPF</td>
 							<td scope="col" class="collapse">RG</td>
-							<td scope="col" class="">Nasc.</td>
+							<td scope="col" class="collapse">Nasc.</td>
 							<td scope="col" class="collapse">Celular</td>
 							<th scope="col">
 								<a href="{{route('patient.create')}}">
@@ -28,9 +28,9 @@
 						<tbody>
 							<tr>
 								<td scope="col">{{$patient->name}}</td>
-								<td scope="col" class="collapse">{{$patient->cpf}}</td>
+								<td scope="col">{{$patient->cpf}}</td>
 								<td scope="col" class="collapse">{{$patient->rg}}</td>
-								<td scope="col">{{date('d/m/Y', strtotime($patient->birth))}}</td>
+								<td scope="col" class="collapse">{{date('d/m/Y', strtotime($patient->birth))}}</td>
 								<td scope="col" class="collapse">{{$patient->phone}}</td>
 								<td class="d-flex flex-row">
 									<nav>
@@ -51,8 +51,8 @@
 	</div>
 	@include('down')
 	<script>
-		if (($(window).width()) < 500) {
-			$('.collapse').hide();
+		if (($(window).width()) > 500) {
+			$('.collapse').show();
 		}
 	</script>
 	</body>

@@ -4,17 +4,18 @@
 @include('head')
 	<body>
     @include('header')
-	<div class="container">
-			<h2 class="border border-primary rounded bg-primary text-white col-md-12">Lista de Pacientes</h2>
+	<div class="container col-10" style="padding-top: 5%;">
+		<!--<div class="col-10"> -->
+			<h2 class="border border-primary rounded bg-primary text-white">Lista de Pacientes</h2>
 			<hr />
 			<div scope="row">
 				<table class="table table-hover table-sm border border-dark">
-					<thead class="thead-dark">
+					<thead class="table-dark thead thead-sm">
 						<tr>
 							<td scope="col">Nome</td>
-							<td scope="col">CPF</td>
+							<td scope="col" class="collapse">CPF</td>
 							<td scope="col" class="collapse">RG</td>
-							<td scope="col" class="">Data de Nasc.</td>
+							<td scope="col" class="">Nasc.</td>
 							<td scope="col" class="collapse">Celular</td>
 							<th scope="col">
 								<a href="{{route('patient.create')}}">
@@ -27,9 +28,9 @@
 						<tbody>
 							<tr>
 								<td scope="col">{{$patient->name}}</td>
-								<td scope="col">{{$patient->cpf}}</td>
+								<td scope="col" class="collapse">{{$patient->cpf}}</td>
 								<td scope="col" class="collapse">{{$patient->rg}}</td>
-								<td scope="col">{{$patient->birth}}</td>
+								<td scope="col">{{date('d/m/Y', strtotime($patient->birth))}}</td>
 								<td scope="col" class="collapse">{{$patient->phone}}</td>
 								<td class="d-flex flex-row">
 									<nav>
@@ -46,11 +47,12 @@
 					@endforeach
 				</table>
 			</div>
-		</div>
+		<!--</div>-->
+	</div>
 	@include('down')
 	<script>
-		if (($(window).width()) > 500) {
-			$('.collapse').show();
+		if (($(window).width()) < 500) {
+			$('.collapse').hide();
 		}
 	</script>
 	</body>

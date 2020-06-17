@@ -85,7 +85,17 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        $patients = Patient::where('id', $patient)->first();
+        $person = $patients->person()->first();
+        $address = $patients->address()->first();
+        $phone = $patients->phone()->first();
+
+        return view('showPatient', [
+            'patient' => $patients,
+            'person' => $person,
+            'address' => $address,
+            'phone' => $phone
+        ]);
     }
 
     /**

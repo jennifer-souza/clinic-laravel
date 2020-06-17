@@ -75,6 +75,8 @@ class PatientController extends Controller
         $phone->ddd = $request->ddd;
         $phone->phone = $request->phone;
         $patient->phone()->save($phone);
+
+        return redirect()->route('patient.index');
     }
 
     /**
@@ -120,7 +122,33 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
-        //
+        $patient->person()->update([
+            'patient_id' => $patient->id,
+            'name' => $request->name,
+            'cpf' => $request->cpf,
+            'rg' => $request->rg,
+            'email' => $request->email,
+            'birth' => $request->birth
+        ]);
+
+        $patient->address()->update([
+            'patient_id' => $patient->id,
+            'zip' => $request->zip,
+            'street' => $request->street,
+            'number' => $request->number,
+            'complement' => $request->complement,
+            'neighborhood' => $request->neighborhood,
+            'city' => $request->city,
+            'state' => $request->state
+        ]);
+
+        $patient->phone()->update([
+            'patient_id' => $patient->id,
+            'ddd' => $request->ddd,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()->route('patient.index');
     }
 
     /**

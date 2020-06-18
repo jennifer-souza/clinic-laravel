@@ -75,6 +75,8 @@ class ProfessionalController extends Controller
       $phone = new Phone();
       $phone->ddd = $request->ddd;
       $phone->phone = $request->phone;
+      $phone->dddc = $request->dddc;
+      $phone->cellphone = $request->cellphone;
       $professional->phone()->save($phone);
     }
 
@@ -140,7 +142,9 @@ class ProfessionalController extends Controller
         $professional->phone()->update([
             'professional_id' => $professional->id,
             'ddd' => $request->ddd,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'dddc' => $request->dddc,
+            'cellphone' => $request->cellphone
         ]);
 
         return redirect()->route('professional.index');

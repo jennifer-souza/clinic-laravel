@@ -46,16 +46,23 @@
                 <label for="name">Data de nascimento</label>
                 <input type="date" class="form-control" name="birth" value="{{$professional->person->birth}}">
             </div>
-            <!-- -->
             @foreach ($professional->phone as $professional)
-            <div class="form-group col-md-1" name="ddd">
-                <label for="name">DDD:</label>
-                <input type="text" class="form-control" name="ddd" value="{{$professional->ddd}}">
-            </div>
-            <div class="form-group col-md-3" name="phone">
-                <label for="name">Celular:</label>
-                <input type="text" class="form-control" name="phone" value="{{$professional->phone}}">
-            </div>
+                <div class="form-group col-md-1" name="ddd">
+                    <label for="name">DDD:</label>
+                    <input type="text" class="form-control" name="ddd" value="{{$professional->ddd}}">
+                </div>
+                <div class="form-group col-md-3" name="phone">
+                    <label for="name">Celular:</label>
+                    <input type="text" class="form-control" name="phone" value="{{$professional->phone}}">
+                </div>
+                <div class="form-group col-md-1" name="dddc">
+                    <label for="name">DDD:</label>
+                    <input type="text" class="form-control" name="dddc" value="{{$professional->dddc}}">
+                </div>
+                <div class="form-group col-md-3" name="cellphone">
+                    <label for="name">Celular:</label>
+                    <input type="text" class="form-control" name="cellphone" value="{{$professional->cellphone}}">
+                </div>
             @endforeach
         </div>
         <hr class="col-md-8" />

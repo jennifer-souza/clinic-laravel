@@ -38,7 +38,7 @@
                             {{  
                                 $phone->cellphone ? "(" . $phone->dddc . ") " 
                                 . $phone->cellphone . " / (" . $phone->ddd . ") " 
-                                . $phone->phone : "(" . $ph->ddd . ") " . $phone->phone
+                                . $phone->phone : "(" . $phone->ddd . ") " . $phone->phone
                             }}
                         </strong>
                     </td>

@@ -74,6 +74,8 @@ class PatientController extends Controller
         $phone = new Phone();
         $phone->ddd = $request->ddd;
         $phone->phone = $request->phone;
+        $phone->dddc = $request->dddc;
+        $phone->cellphone = $request->cellphone;
         $patient->phone()->save($phone);
 
         return redirect()->route('patient.index');
@@ -145,7 +147,9 @@ class PatientController extends Controller
         $patient->phone()->update([
             'patient_id' => $patient->id,
             'ddd' => $request->ddd,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'dddc' => $request->dddc,
+            'cellphone' => $request->cellphone
         ]);
 
         return redirect()->route('patient.index');

@@ -36,7 +36,7 @@
         <div class="row">
             <div class="form-group col-md-6" name="address">
                 <label for="name">Logadouro(Ex: Rua, Avenida):</label>
-                <input type="text" class="form-control" name="address">
+                <input type="text" class="form-control" name="street">
             </div>
             <div class="form-group col-md-2" name="number">
                 <label for="name">Nº:</label>
@@ -54,29 +54,30 @@
             </div>
             <div class="form-group col-md-2" name="uf">
                 <label for="name">UF:</label>
-                <select class="form-control browser-default custom-select" 
+                <input type="text" class="form-control" name="state">
+                <!--<select class="form-control browser-default custom-select" 
                     name="uf" style="width: 100%;">
                     <option selected>Estado</option>
                     <option value=""></option>
-                </select>  
+                </select>-->  
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-1" name="ddd">
-                    <label for="name">DDD:</label>
-                    <input type="text" class="form-control" name="ddd">
-            </div>
-            <div class="form-group col-md-3" name="phone">
-                <label for="name">Celular:</label>
-                <input type="text" class="form-control" name="phone">
-            </div>
             <div class="form-group col-md-1" name="ddd">
                 <label for="name">DDD:</label>
                 <input type="text" class="form-control" name="ddd">
             </div>
             <div class="form-group col-md-3" name="phone">
-                <label for="name">Telefore:</label>
+                <label for="name">Telefone:</label>
                 <input type="text" class="form-control" name="phone">
+            </div>
+            <div class="form-group col-md-1" name="dddc">
+                <label for="name">DDD:</label>
+                <input type="text" class="form-control" name="dddc">
+            </div>
+            <div class="form-group col-md-3" name="cellphone">
+                <label for="name">Celular:</label>
+                <input type="text" class="form-control" name="cellphone">
             </div>
         </div>
         <div class="row">

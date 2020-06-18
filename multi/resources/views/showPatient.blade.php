@@ -4,36 +4,62 @@
 <body>
 @include('header')
     <hr/>
-    <div class="prof" style="padding-left: 14%; padding-top: 3%;">
-        <h2 class="border border-info rounded bg-primary text-white col-md-10">Dados do Profissional > {{$person->name}}</h2>
-    </div>
-    <div class="prof" style="padding-left: 14%; padding-top: 1%;">
-        <table class="table table-sm col-md-10" >    
-            <tr class="row">
-                <td class="table-info col-md-4">Data de Nascimento:</td>                    
-                <td class="table-active col-md-8"><strong>{{date('d/m/Y', strtotime($person->birth))}}</strong></td>
-            </tr>
-            <tr class="row">
-                <td class="table-info col-md-4">CPF:</td>                    
-                <td class="table-active col-md-8"><strong>{{$person->cpf}}</strong></td>
-            </tr>
-            <tr class="row">
-                <td class="table-info col-md-4">RG:</td>                    
-                <td class="table-active col-md-8"><strong>{{$person->rg}}</strong></td>
-            </tr>
-            <tr class="row">
-                <td class="table-info col-md-4">Email:</td>                    
-                <td class="table-active col-md-8"><strong>{{$person->email}}</strong></td>
-            </tr>
-            <tr class="row">
-                <td class="table-info col-md-4">DDD:</td>  
-                <td class="table-active col-md-8"><strong>{{$phone->ddd}}</strong></td>
-            </tr>
-            <tr class="row">
-                <td class="table-info col-md-4">Telefone de Contato:</td>                    
-                <td class="table-active col-md-8"><strong>{{$phone->phone}}</strong></td>
-            </tr>
-        </table>
+    <div class="container" style="padding-top: 3%;">
+        <h2 class="border border-info rounded bg-primary text-white text-center col-lg-12">{{$person->name}}</h2>
+        <div class="container" style="padding-top: 1%;">
+            <table class="table table-hover table-sm row-sm-10 border border-secondary rounded-5">
+                <tr class="">
+                    <td colspan="2" class="bg-secondary text-white text-center">Dados do Paciente</td>                    
+                </tr>    
+                <tr class="">
+                    <td class="bg-dark text-white">Nascimento:</td>                    
+                    <td class="table-active"><strong>{{date('d/m/Y', strtotime($person->birth))}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">CPF:</td>                    
+                    <td class="table-active"><strong>{{$person->cpf}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">RG:</td>                    
+                    <td class="table-active"><strong>{{$person->rg}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Email:</td>                    
+                    <td class="table-active"><strong>{{$person->email}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Contato:</td>                    
+                    <td class="table-active"><strong>{{$phone->ddd . " " . $phone->phone}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Profissão:</td>                    
+                    <td class="table-active"><strong>{{$person->prof}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td colspan="2" class="bg-secondary text-white text-center">Endereço</td>                    
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Rua:</td>                    
+                    <td class="table-active"><strong>{{$address->street . ", " . $address->number}}</strong></td>
+                </tr>
+                <tr class="comp">
+                    <td class="bg-dark text-white">Complemento:</td>                    
+                    <td class="table-active" id="comp"><strong>{{$address->complement ? $address->complement : ""}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Bairro:</td>                    
+                    <td class="table-active"><strong>{{$address->neighborhood}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">CEP:</td>                    
+                    <td class="table-active"><strong>{{$address->zip}}</strong></td>
+                </tr>
+                <tr class="">
+                    <td class="bg-dark text-white">Cidade:</td>                    
+                    <td class="table-active"><strong>{{$address->city . "/" . $address->state}}</strong></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <hr/>
     <table class="table table-sm border border-secondary col-md-12">
@@ -44,5 +70,10 @@
         </td>
     </table>
 @include('down')
+<script>
+    if ($('#comp').val() === "") {
+        $('.comp').hide();
+    }
+</script>
 </body>
 </html>
